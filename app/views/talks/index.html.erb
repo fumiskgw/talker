@@ -1,0 +1,11 @@
+<p><%= notice %></p>
+
+<h1>みんなのコメント一覧</h1>
+
+<% @talks.each do |talk| %>
+  <p>コメント:<%= talk.comment %></p>
+  <%= link_to "編集", edit_talk_path(talk.id) %>
+  <%= link_to "削除", talk_path(talk.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+<% end %>
+
+<%= link_to "ここからお話ししてね", new_talk_path %>
