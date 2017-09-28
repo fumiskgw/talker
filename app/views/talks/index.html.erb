@@ -1,11 +1,18 @@
-<p><%= notice %></p>
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    
+    <h1>みんなのコメント一覧</h1>
+    <div class="row">
+     <% @talks.each do |talk| %>
+       <p><%= talk.comment %></p>
+       <%= link_to "編集", edit_talk_path(talk.id), class: 'btn btn-primary' %>
+       <%= link_to "削除", talk_path(talk.id), method: :delete, data: { confirm: '本当に削除していいですか？' },class: 'btn btn-danger' %>
+     <% end %>
+    </div>
+    
+    <br>
 
-<h1>みんなのコメント一覧</h1>
-
-<% @talks.each do |talk| %>
-  <p>コメント:<%= talk.comment %></p>
-  <%= link_to "編集", edit_talk_path(talk.id) %>
-  <%= link_to "削除", talk_path(talk.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-<% end %>
-
-<%= link_to "ここからお話ししてね", new_talk_path %>
+    <%= link_to "ここからお話ししてね", new_talk_path, class: 'btn btn-default' %>
+  </div>
+</div>

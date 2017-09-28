@@ -1,0 +1,14 @@
+<div class="container">
+ <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+  <h3>以下の内容で、送信してよろしいですか？。</h3>
+  <%= form_for(@talk) do |f| %>
+   <%= f.hidden_field :comment %>
+   <p>コメント:<%= @talk.comment %></p>
+   <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+  <% end %>
+  <%= form_for(@talk)do |f| %>
+   <%= f.hidden_field :comment %>
+   <%= f.submit "戻る", name: 'back', class: 'btn btn-default btn-block' %>
+  <% end %>
+ </div>
+</div>

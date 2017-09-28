@@ -18,6 +18,10 @@ class TalksController < ApplicationController
     end
   end
   
+  def confirm
+    @talk = Talk.new(talks_params)
+  end
+  
   def edit
   end
   
